@@ -1,0 +1,90 @@
+﻿@model Introducao.Models.Usuario
+@{
+    ViewBag.Title = "Usuario";
+}
+
+<h2>Usuario</h2>
+
+
+<div>
+    <h2>
+        Validação de Usuários
+    </h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend> Dados do Usuário</legend>
+
+            <!--Nome-->
+            <div class="editor-label">
+                @Html.LabelFor(x => x.nomeUsuario)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(x => x.nomeUsuario)
+                @Html.ValidationMessageFor(x => x.nomeUsuario)
+            </div>
+            <!--Observacoes-->
+            <div class="editor-label">
+                @Html.LabelFor(x => x.observacoes)
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(x => x.observacoes)
+                @Html.ValidationMessageFor(x => x.observacoes)
+            </div>
+            <!--Idade-->
+            <div class="editor-label">
+                @Html.LabelFor(x => x.idade)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(x => x.idade)
+                @Html.ValidationMessageFor(x => x.idade)
+            </div>
+            <!--E-mail-->
+            <div class="editor-label">
+                @Html.LabelFor(x => x.email)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(x => x.email)
+                @Html.ValidationMessageFor(x => x.email)
+            </div>
+
+            <!--login-->
+            <div class="editor-label">
+                @Html.LabelFor(x => x.login)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(x => x.login)
+                @Html.ValidationMessageFor(x => x.login)
+            </div>
+
+            <!--senha-->
+            <div class="editor-label">
+                @Html.LabelFor(x => x.senha)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(x => x.senha)
+                @Html.ValidationMessageFor(x => x.senha)
+            </div>
+
+            <!--senha-->
+            <div class="editor-label">
+                @Html.LabelFor(x => x.confirmarSenha)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(x => x.confirmarSenha)
+                @Html.ValidationMessageFor(x => x.confirmarSenha)
+            </div>
+
+            <div>
+                <p><input type="submit" value="Cadastrar" /></p>
+            </div>
+        </fieldset>
+
+        @section Scripts{
+            @Scripts.Render("~/budles/jquery.validate");
+        }
+
+    }
+</div>
